@@ -1,152 +1,287 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* Reset e Variáveis Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body{
-    font-family:Arial, sans-serif;
-    background:#07120d;
-    color:white;
+:root {
+    --verde-escuro: #1b5e20;
+    --verde-principal: #2e7d32;
+    --verde-claro: #4caf50;
+    --terra: #8d6e63;
+    --fundo-claro: #f1f8e9;
+    --texto-escuro: #212121;
+    --branco: #ffffff;
 }
 
-.hero{
-    height:100vh;
-    background:
-    linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.7)),
-    url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854');
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:40px;
+body {
+    background-color: var(--fundo-claro);
+    color: var(--texto-escuro);
+    line-height: 1.6;
 }
 
-.content{
-    max-width:900px;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
 }
 
-.tag{
-    color:#58ff99;
-    letter-spacing:3px;
-    font-size:13px;
+.text-center {
+    text-align: center;
 }
 
-.hero h1{
-    font-size:4rem;
-    margin:20px 0;
+/* Menu de Navegação */
+header {
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.hero p{
-    font-size:1.2rem;
-    color:#d7d7d7;
-    line-height:1.7;
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
 }
 
-.buttons{
-    margin-top:35px;
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-button{
-    padding:14px 28px;
-    border:none;
-    border-radius:40px;
-    cursor:pointer;
-    background:#2fff8d;
-    color:#07120d;
-    font-weight:bold;
-    margin:10px;
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
 }
 
-.secondary{
-    background:transparent;
-    border:1px solid #2fff8d;
-    color:white;
+nav ul li a {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
 }
 
-.section{
-    padding:120px 10%;
-    text-align:center;
+nav ul li a:hover {
+    color: #ccff90;
 }
 
-.dark{
-    background:#0d1c15;
+/* Banner Principal */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://unsplash.com') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--branco);
+    padding: 20px;
 }
 
-.subtitle{
-    color:#58ff99;
-    font-size:13px;
-    letter-spacing:3px;
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
-.section h2{
-    font-size:3rem;
-    margin:20px 0;
+.hero p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
 }
 
-.section p{
-    max-width:800px;
-    margin:auto;
-    color:#c7c7c7;
-    line-height:1.8;
+.btn-principal {
+    background-color: #ff9800;
+    color: var(--texto-escuro);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background-color 0.2s;
 }
 
-.stats{
-    margin-top:60px;
-    display:flex;
-    gap:30px;
-    justify-content:center;
-    flex-wrap:wrap;
+.btn-principal:hover {
+    transform: scale(1.05);
+    background-color: #fb8c00;
 }
 
-.card{
-    background:#11231a;
-    padding:40px;
-    border-radius:20px;
-    width:280px;
+/* Seção do Elemento 3D */
+.section-3d {
+    background-color: var(--branco);
+    padding: 60px 0;
+    border-bottom: 3px solid #e0e0e0;
 }
 
-.card h3{
-    font-size:2.5rem;
-    color:#58ff99;
+.section-3d h2, .ferramentas h2, .diagnostico h2 {
+    color: var(--verde-escuro);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
-.card span{
-    display:block;
-    margin-top:10px;
-    color:#ccc;
+#canvas-container-3d {
+    width: 100%;
+    height: 400px;
+    background-color: #eceff1;
+    margin: 30px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    cursor: grab;
 }
 
-.cta{
-    padding:150px 10%;
-    text-align:center;
-    background:linear-gradient(
-        135deg,
-        #0a2f1f,
-        #103d28
-    );
+#canvas-container-3d:active {
+    cursor: grabbing;
 }
 
-.reveal{
-    opacity:0;
-    transform:translateY(60px);
-    transition:1s;
+.legendas-3d {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-weight: bold;
 }
 
-.reveal.active{
-    opacity:1;
-    transform:translateY(0);
+.leg-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-@media(max-width:768px){
-
-.hero h1{
-    font-size:2.5rem;
+/* Seção de Ferramentas / Usabilidade */
+.ferramentas {
+    padding: 60px 0;
 }
 
-.section h2{
-    font-size:2rem;
+.subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    color: #555;
 }
+
+.grid-ferramenta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.card-formulario, .card-resultado {
+    background: var(--branco);
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card-formulario h3, .card-resultado h3 {
+    margin-bottom: 25px;
+    color: var(--terra);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.input-group input {
+    padding: 15px;
+    font-size: 1.2rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.btn-acao {
+    width: 100%;
+    background-color: var(--verde-principal);
+    color: var(--branco);
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-acao:hover {
+    background-color: var(--verde-escuro);
+}
+
+.resultado-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--fundo-claro);
+    border-radius: 8px;
+}
+
+.resultado-item i {
+    font-size: 1.8rem;
+}
+
+.verde { color: #4caf50; }
+.floresta { color: #2e7d32; }
+
+.nota {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 15px;
+}
+
+/* Gráficos e Telas Extras */
+.diagnostico {
+    background-color: var(--branco);
+    padding: 60px 0;
+}
+
+.chart-container {
+    max-width: 800px;
+    margin: 40px auto 0 auto;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--verde-escuro);
+    color: var(--branco);
+    text-align: center;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+/* Responsividade Básica para Celulares de Agricultores */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .grid-ferramenta {
+        flex-direction: column;
+    }
 }
