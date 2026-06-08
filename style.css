@@ -1,118 +1,289 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* Configurações Gerais e Variáveis Modernas */
+:root {
+    --bg-main: #0b0f19;
+    --bg-card: #141b2d;
+    --bg-input: #1f2942;
+    --primary: #10b981;
+    --primary-hover: #059669;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --accent: #3b82f6;
+    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
-body{
-    background:#050505;
-    color:white;
-    font-family:Arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-header{
-    position:fixed;
-    width:100%;
-    top:0;
-    left:0;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:20px 50px;
-
-    backdrop-filter:blur(10px);
-    background:rgba(0,0,0,0.3);
-
-    z-index:1000;
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding-bottom: 40px;
 }
 
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    color:#00ff88;
+/* Header Estilo Glassmorphism */
+header {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    text-align: center;
+    padding: 30px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid var(--primary);
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:25px;
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-.hero{
-    height:100vh;
-    position:relative;
+header p {
+    color: #a7f3d0;
+    margin-top: 5px;
+    font-size: 1rem;
 }
 
-.overlay{
-    position:absolute;
-    z-index:10;
-
-    top:50%;
-    left:50%;
-
-    transform:translate(-50%,-50%);
-
-    text-align:center;
+/* Menu de Abas Navegável */
+.tabs-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px auto;
+    max-width: 1200px;
+    padding: 0 20px;
 }
 
-.overlay h1{
-    font-size:70px;
-    margin-bottom:20px;
+.tab-btn {
+    background: var(--bg-card);
+    color: var(--text-muted);
+    padding: 12px 24px;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
-.overlay p{
-    font-size:22px;
-    max-width:700px;
+.tab-btn:hover, .tab-btn.active {
+    background: var(--primary);
+    color: #white;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    transform: translateY(-2px);
+    border-color: transparent;
 }
 
-button{
-    margin-top:30px;
-
-    padding:15px 40px;
-
-    border:none;
-    border-radius:40px;
-
-    background:#00ff88;
-    color:black;
-
-    cursor:pointer;
-
-    font-size:18px;
+/* Containers e Layout de Abas */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-#bg{
-    width:100%;
-    height:100%;
-    display:block;
+.tab-content {
+    display: none;
 }
 
-.cards{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-
-    padding:80px;
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
 }
 
-.card{
-    width:300px;
-
-    background:rgba(255,255,255,0.05);
-
-    border:1px solid rgba(255,255,255,0.1);
-
-    backdrop-filter:blur(20px);
-
-    border-radius:20px;
-
-    padding:30px;
-
-    transition:0.3s;
+/* Grid Layout Avançado */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
 }
 
-.card:hover{
-    transform:translateY(-10px);
+/* Cards Premium Inteligentes */
+.card {
+    background: var(--bg-card);
+    border-radius: 18px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Imagens Estilizadas de Fundo para Elementos Importantes */
+.card-image {
+    background-size: cover;
+    background-position: center;
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #ffffff;
+    border-left: 4px solid var(--primary);
+    padding-left: 10px;
+}
+
+.card-body p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #e5e7eb;
+}
+
+.card-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* Inputs e Seleções */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input, select {
+    background-color: var(--bg-input);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+}
+
+/* Botões */
+button {
+    background: var(--primary);
+    color: white;
+    font-weight: 700;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background: var(--primary-hover);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Caixas de Respostas Dinâmicas */
+.response-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(11, 15, 25, 0.8);
+    border-radius: 10px;
+    border-left: 4px solid var(--accent);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Barra de Progresso customizada */
+.progress-container {
+    margin-top: 10px;
+}
+.progress-label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: var(--text-muted);
+}
+progress {
+    width: 100%;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    appearance: none;
+}
+progress::-webkit-progress-bar {
+    background-color: var(--bg-input);
+}
+progress::-webkit-progress-value {
+    background-color: var(--primary);
+}
+
+/* Layout Customizado para a Aba do Jogo */
+.game-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.status-card {
+    grid-column: span 2;
+}
+
+.game-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.btn-harvest {
+    background: #ea580c;
+}
+.btn-harvest:hover {
+    background: #c2410c;
+}
+
+.game-panel-output {
+    background: rgba(15, 23, 42, 0.85);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px dashed rgba(255,255,255,0.1);
+    line-height: 2;
+    font-size: 1.05rem;
+}
+
+.placeholder-text {
+    color: var(--text-muted);
+    text-align: center;
+    font-style: italic;
+}
+
+.highlight-text {
+    color: #34d399;
+    font-size: 1.1rem;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .game-layout {
+        grid-template-columns: 1fr;
+    }
+    .status-card {
+        grid-column: span 1;
+    }
+    .tabs-nav {
+        flex-direction: column;
+        gap: 8px;
+    }
 }

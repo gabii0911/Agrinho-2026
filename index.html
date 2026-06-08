@@ -1,72 +1,168 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AgroVerse 3D</title>
-
-<link rel="stylesheet" href="style.css">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroVerse - Dashboard Inteligente</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <div class="logo">AGROVERSE 3D</div>
+    <!-- Topo do Sistema -->
+    <header>
+        <div class="logo">🌱 AGROVERSE</div>
+        <p>Plataforma Inteligente & Simulador Agrícola</p>
+    </header>
 
-    <nav>
-        <a href="#">Início</a>
-        <a href="#">IA</a>
-        <a href="#">Simulador</a>
-        <a href="#">Mercado</a>
-        <a href="#">Contato</a>
+    <!-- Menu de Abas Inovador -->
+    <nav class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab('dashboard')">📊 Painel Geral</button>
+        <button class="tab-btn" onclick="switchTab('simuladores')">🤖 Inteligência & Simulação</button>
+        <button class="tab-btn" onclick="switchTab('game')">🎮 Fazenda Virtual (Jogo)</button>
     </nav>
-</header>
 
-<section class="hero">
+    <!-- Conteúdo Principal -->
+    <main class="container">
 
-    <div class="overlay">
+        <!-- ABA 1: PAINEL GERAL -->
+        <section id="dashboard" class="tab-content active">
+            <div class="grid">
+                <!-- Clima -->
+                <div class="card card-image" style="background-image: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.95)), url('https://unsplash.com');">
+                    <h2>🌦️ Clima em Tempo Real</h2>
+                    <div class="card-body">
+                        <p><strong>Temperatura:</strong> 28°C</p>
+                        <p><strong>Umidade:</strong> 65%</p>
+                        <p><strong>Chance de Chuva:</strong> 40%</p>
+                    </div>
+                </div>
 
-        <h1>O Futuro do Agronegócio</h1>
+                <!-- Mercado -->
+                <div class="card card-image" style="background-image: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.95)), url('https://unsplash.com');">
+                    <h2>📈 Mercado Agrícola</h2>
+                    <div class="card-body">
+                        <p><strong>Soja:</strong> R$ 152 / saca</p>
+                        <p><strong>Milho:</strong> R$ 69 / saca</p>
+                        <p><strong>Café:</strong> R$ 1.240 / saca</p>
+                    </div>
+                </div>
 
-        <p>
-            Crie sua fazenda virtual,
-            simule resultados reais
-            e tome decisões inteligentes.
-        </p>
+                <!-- Monitoramento -->
+                <div class="card card-image" style="background-image: linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.95)), url('https://unsplash.com');">
+                    <h2>Satélite & Telemetria</h2>
+                    <div class="card-body">
+                        <p><strong>Talhões Monitorados:</strong> 12 ativos</p>
+                        <p><strong>Saúde da Lavoura:</strong> 92% (Excelente)</p>
+                    </div>
+                </div>
 
-        <button onclick="entrar()">
-            COMEÇAR
-        </button>
+                <!-- Irrigação -->
+                <div class="card">
+                    <h2>💧 Gestão Hídrica</h2>
+                    <div class="card-body">
+                        <div class="progress-container">
+                            <span class="progress-label">Eficiência do Sistema</span>
+                            <progress value="78" max="100"></progress>
+                            <span class="progress-value">78%</span>
+                        </div>
+                    </div>
+                </div>
 
-    </div>
+                <!-- Inventário -->
+                <div class="card">
+                    <h2>🚜 Maquinário</h2>
+                    <div class="card-body">
+                        <p><strong>Tratores:</strong> 2 unidades</p>
+                        <p><strong>Colheitadeiras:</strong> 1 unidade</p>
+                        <p><strong>Drones (MD-4):</strong> 3 unidades</p>
+                    </div>
+                </div>
 
-    <canvas id="bg"></canvas>
+                <!-- Relatório -->
+                <div class="card">
+                    <h2>📊 Produtividade Consolidada</h2>
+                    <div class="card-body">
+                        <p><strong>Área Total:</strong> 500 ha</p>
+                        <p><strong>Média por Hectare:</strong> 68 sc/ha</p>
+                        <p class="highlight-text"><strong>Lucro Líquido:</strong> R$ 1.250.000</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-</section>
+        <!-- ABA 2: INTELIGÊNCIA & SIMULAÇÃO -->
+        <section id="simuladores" class="tab-content">
+            <div class="grid">
+                <!-- IA Agrícola -->
+                <div class="card">
+                    <h2>🤖 Assistente de IA Agrícola</h2>
+                    <p class="card-desc">Tire dúvidas sobre culturas e manejos específicos.</p>
+                    <div class="input-group">
+                        <input type="text" id="pergunta" placeholder="Ex: Dicas para plantar soja...">
+                        <button onclick="perguntarIA()">Consultar Inteligência</button>
+                    </div>
+                    <div id="respostaIA" class="response-box">Aguardando comando...</div>
+                </div>
 
-<section class="cards">
+                <!-- Simulador Financeiro -->
+                <div class="card">
+                    <h2>🌾 Simulador de Safras Futuras</h2>
+                    <p class="card-desc">Calcule projeções brutas com base no tamanho da área.</p>
+                    <div class="input-group">
+                        <input type="number" id="hectares" placeholder="Área total (hectares)">
+                        <select id="cultura">
+                            <option value="Soja">Soja</option>
+                            <option value="Milho">Milho</option>
+                            <option value="Café">Café</option>
+                        </select>
+                        <button onclick="simularFazenda()">Rodar Simulação</button>
+                    </div>
+                    <div id="resultadoSimulacao" class="response-box">Preencha os campos para calcular.</div>
+                </div>
+            </div>
+        </section>
 
-    <div class="card">
-        <h2>IA Agrícola</h2>
-        <p>Assistente inteligente.</p>
-    </div>
+        <!-- ABA 3: FAZENDA VIRTUAL (JOGO) -->
+        <section id="game" class="tab-content">
+            <div class="game-layout">
+                <!-- Configuração Inicial -->
+                <div class="card setup-card">
+                    <h2>🎮 Setup da Fazenda Virtual</h2>
+                    <div class="input-group">
+                        <input type="text" id="nomeFazenda" placeholder="Nome do seu Império">
+                        <input type="number" id="areaFazenda" placeholder="Tamanho do Território (ha)">
+                        <select id="culturaGame">
+                            <option value="Soja">Gãos: Soja</option>
+                            <option value="Milho">Grãos: Milho</option>
+                            <option value="Café">Especial: Café</option>
+                        </select>
+                        <button class="btn-primary" onclick="criarFazenda()">Fundar Fazenda</button>
+                    </div>
+                </div>
 
-    <div class="card">
-        <h2>Simulação Real</h2>
-        <p>Teste antes de investir.</p>
-    </div>
+                <!-- Painel de Upgrade e Ações -->
+                <div class="card action-card">
+                    <h2>⚡ Central de Investimentos</h2>
+                    <div class="game-actions">
+                        <button onclick="comprarTrator()">🚜 Comprar Trator (+5% Produtividade)</button>
+                        <button onclick="comprarDrone()">🛰️ Comprar Drone (+3% Produtividade)</button>
+                        <button onclick="instalarIrrigacao()">💧 Irrigação Automatizada (+10% Estabilidade)</button>
+                        <button class="btn-harvest" onclick="colher()">🌾 Executar Colheita</button>
+                    </div>
+                </div>
 
-    <div class="card">
-        <h2>Fazendas 3D</h2>
-        <p>Visualização imersiva.</p>
-    </div>
+                <!-- Tela de Status Realtime do Jogo -->
+                <div class="card status-card card-image" style="background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('https://unsplash.com');">
+                    <h2>🖥️ Monitor do Simulador</h2>
+                    <div id="painelFazenda" class="game-panel-output">
+                        <p class="placeholder-text">Crie sua fazenda para iniciar a telemetria do jogo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-</section>
+    </main>
 
-<script src="app.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
