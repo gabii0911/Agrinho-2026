@@ -1,108 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome para ícones fáceis de identificar -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <!-- Three.js para os elementos 3D -->
-    <script src="https://cloudflare.com"></script>
-    <!-- Chart.js para gráficos de usabilidade -->
-    <script src="https://jsdelivr.net"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AgroVerse 3D</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 </head>
 <body>
 
-    <!-- Cabeçalho / Navegação -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fa-solid fa-leaf"></i> <span>AgroSustentável</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#modelo-3d">Visualização 3D</a></li>
-                    <li><a href="#ferramentas">Calculadora Útil</a></li>
-                    <li><a href="#diagnostico">Gráfico de Produção</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header>
+    <div class="logo">AGROVERSE 3D</div>
 
-    <!-- Banner Principal -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Agro forte, futuro sustentável</h1>
-            <p>O equilíbrio perfeito entre a alta produtividade no campo e a preservação do meio ambiente.</p>
-            <a href="#ferramentas" class="btn-principal"><i class="fa-solid fa-calculator"></i> Testar Calculadora do Produtor</a>
-        </div>
-    </section>
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">IA</a>
+        <a href="#">Simulador</a>
+        <a href="#">Mercado</a>
+        <a href="#">Contato</a>
+    </nav>
+</header>
 
-    <!-- Seção 3D Interativa -->
-    <section id="modelo-3d" class="section-3d">
-        <div class="container text-center">
-            <h2>Maquete Digital da Fazenda Sustentável</h2>
-            <p>Use o mouse ou o dedo para girar e interagir com o ecossistema ideal balanceado (Lavoura, Proteção Ambiental e Tecnologia).</p>
-            <!-- O canvas do Three.js será injetado aqui -->
-            <div id="canvas-container-3d"></div>
-            <div class="legendas-3d">
-                <span class="leg-item"><i class="fa-solid fa-square" style="color: #2e7d32;"></i> Área Verde</span>
-                <span class="leg-item"><i class="fa-solid fa-square" style="color: #ef6c00;"></i> Solo Produção</span>
-                <span class="leg-item"><i class="fa-solid fa-square" style="color: #0288d1;"></i> Tecnologia/Água</span>
-            </div>
-        </div>
-    </section>
+<section class="hero">
 
-    <!-- Painel de Ferramentas / Usabilidade do Agricultor -->
-    <section id="ferramentas" class="ferramentas">
-        <div class="container">
-            <h2>Calculadora Rápida: Equilíbrio da Propriedade</h2>
-            <p class="subtitle">Insira o tamanho da sua área para planejar a divisão sustentável ideal recomendada.</p>
-            
-            <div class="grid-ferramenta">
-                <div class="card-formulario">
-                    <h3>Dados da sua Área</h3>
-                    <div class="input-group">
-                        <label for="area-total">Área Total da Propriedade (em Hectares):</label>
-                        <input type="number" id="area-total" placeholder="Ex: 50" min="1" value="100">
-                    </div>
-                    <button onclick="calcularDivisao()" class="btn-acao">Calcular Divisão Sustentável</button>
-                </div>
+    <div class="overlay">
 
-                <div class="card-resultado">
-                    <h3>Divisão Recomendada</h3>
-                    <div class="resultado-item">
-                        <i class="fa-solid fa-seedling verde"></i>
-                        <span>Lavoura Produtiva (80%): <strong id="res-lavoura">80</strong> ha</span>
-                    </div>
-                    <div class="resultado-item">
-                        <i class="fa-solid fa-tree floresta"></i>
-                        <span>Reserva Legal / APP (20%): <strong id="res-reserva">20</strong> ha</span>
-                    </div>
-                    <p class="nota">*O cálculo básico respeita a regra padrão do Código Florestal para a maioria das regiões de transição.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <h1>O Futuro do Agronegócio</h1>
 
-    <!-- Gráficos de Diagnóstico -->
-    <section id="diagnostico" class="diagnostico">
-        <div class="container">
-            <h2>Acompanhamento Técnico Visual</h2>
-            <p>Monitore visualmente como práticas sustentáveis (como rotação de culturas e plantio direto) aumentam seus lucros a longo prazo.</p>
-            <div class="chart-container">
-                <canvas id="graficoSustentavel"></canvas>
-            </div>
-        </div>
-    </section>
+        <p>
+            Crie sua fazenda virtual,
+            simule resultados reais
+            e tome decisões inteligentes.
+        </p>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>© 2026 Agrinho PR - Projeto Escolar Tecnológico para o Campo.</p>
-    </footer>
+        <button onclick="entrar()">
+            COMEÇAR
+        </button>
 
-    <script src="script.js"></script>
+    </div>
+
+    <canvas id="bg"></canvas>
+
+</section>
+
+<section class="cards">
+
+    <div class="card">
+        <h2>IA Agrícola</h2>
+        <p>Assistente inteligente.</p>
+    </div>
+
+    <div class="card">
+        <h2>Simulação Real</h2>
+        <p>Teste antes de investir.</p>
+    </div>
+
+    <div class="card">
+        <h2>Fazendas 3D</h2>
+        <p>Visualização imersiva.</p>
+    </div>
+
+</section>
+
+<script src="app.js"></script>
+
 </body>
 </html>
